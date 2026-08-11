@@ -1,0 +1,206 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+  padding-inline: max(var(--cs-page-gutter), env(safe-area-inset-left))
+    max(var(--cs-page-gutter), env(safe-area-inset-right));
+  background: var(--cs-canvas);
+}
+
+.strip__inner {
+  display: grid;
+  grid-template-areas: 'brand telemetry controls';
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0.875rem;
+  box-sizing: border-box;
+  min-height: var(--app-top-bar-height, 3.25rem);
+  max-width: calc(var(--cs-content-max) - (2 * var(--cs-page-gutter)));
+  margin-inline: auto;
+  padding: calc(0.375rem + env(safe-area-inset-top)) 0.75rem 0.375rem;
+  border-bottom: 1px solid var(--cs-hairline);
+}
+
+:host(.strip--has-message) .strip__inner {
+  grid-template-areas:
+    'brand telemetry controls'
+    'message message message';
+  row-gap: 0.3125rem;
+}
+
+:host(.strip--docked) {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.strip__telemetry,
+.strip__controls,
+.settings-persistence-error {
+  display: flex;
+  align-items: center;
+}
+
+.strip__telemetry {
+  grid-area: telemetry;
+  gap: 0.875rem;
+  padding-inline-start: 0.875rem;
+  border-inline-start: 1px solid var(--cs-hairline);
+}
+
+.strip__controls {
+  grid-area: controls;
+  gap: 0.375rem;
+  padding-inline-start: 0.875rem;
+  border-inline-start: 1px solid var(--cs-hairline);
+}
+
+.brand {
+  grid-area: brand;
+  display: flex;
+  min-width: 0;
+  min-height: var(--cs-control-height);
+  align-items: center;
+  gap: 0.5rem;
+  padding-inline: 0.25rem 0.375rem;
+  border-radius: var(--cs-r-ctl);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    color var(--cs-dur-fast) var(--cs-ease),
+    background-color var(--cs-dur-fast) var(--cs-ease);
+}
+
+.brand__mark {
+  display: grid;
+  width: calc(var(--cs-control-height) - 0.5rem);
+  height: calc(var(--cs-control-height) - 0.5rem);
+  flex: none;
+  place-items: center;
+  border-radius: var(--cs-r-ctl);
+  background: var(--cs-accent);
+  color: var(--cs-accent-ink);
+  font-size: 0.8125rem;
+}
+
+.brand__name {
+  overflow: hidden;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.live {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.5625rem;
+  color: var(--cs-muted);
+}
+
+.live--on {
+  color: var(--cs-ok);
+}
+
+.live--on .cs-led {
+  --cs-led-color: var(--cs-ok);
+}
+
+.live__icon {
+  font-size: 0.8125rem;
+}
+
+.live__text {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.clock {
+  flex: none;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--cs-text);
+}
+
+.settings-persistence-error {
+  grid-area: message;
+  gap: 0.375rem;
+  padding-block: 0.375rem;
+  border-top: 1px solid var(--cs-hairline);
+  color: var(--cs-status-warning-text);
+  font-size: 0.75rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .brand:hover {
+    background: var(--cs-hover-tint);
+  }
+}
+
+@media (min-width: 900px) {
+  .brand {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .strip__inner {
+    grid-template-areas:
+      'brand controls'
+      'telemetry telemetry';
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.3125rem 0.5rem;
+  }
+
+  :host(.strip--has-message) .strip__inner {
+    grid-template-areas:
+      'brand controls'
+      'telemetry telemetry'
+      'message message';
+  }
+
+  .strip__telemetry {
+    padding-block-start: 0.3125rem;
+    padding-inline-start: 0.25rem;
+    border-block-start: 1px solid var(--cs-hairline);
+    border-inline-start: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .strip__inner {
+    gap: 0.5rem;
+  }
+
+  .brand__name,
+  .live__text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .strip__telemetry,
+  .strip__controls {
+    gap: 0.375rem;
+    padding-inline-start: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .strip__inner {
+    border-color: CanvasText;
+  }
+}

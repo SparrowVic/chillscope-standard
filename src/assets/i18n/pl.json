@@ -1,0 +1,199 @@
+{
+  "app": {
+    "title": "Chillscope",
+    "skipToContent": "Przejdź do treści"
+  },
+  "menu": {
+    "label": "Menu główne",
+    "dashboard": "Pulpit",
+    "settings": "Ustawienia"
+  },
+  "common": {
+    "apply": "Zastosuj",
+    "cancel": "Anuluj",
+    "clear": "Wyczyść",
+    "close": "Zamknij",
+    "confirm": "Potwierdź",
+    "retry": "Spróbuj ponownie",
+    "yes": "Tak",
+    "no": "Nie",
+    "loading": "Wczytywanie…",
+    "noResults": "Brak wyników",
+    "all": "Wszystkie",
+    "today": "Dziś",
+    "selectAll": "Zaznacz wszystko",
+    "clearAll": "Odznacz wszystko",
+    "placeholderSelect": "Wybierz…",
+    "placeholderSelectMany": "Wybierz jedną lub więcej…",
+    "placeholderDateRange": "Wybierz zakres dat",
+    "discardChanges": "Odrzucić niezapisane zmiany?",
+    "updateReady": "Nowa wersja aplikacji — za chwilę nastąpi przeładowanie"
+  },
+  "states": {
+    "errorTitle": "Nie udało się pobrać danych",
+    "errorMessage": "Coś poszło nie tak po stronie serwera. Spróbuj ponownie."
+  },
+  "errors": {
+    "generic": "Wystąpił nieoczekiwany błąd.",
+    "loadMeasurements": "Nie udało się pobrać pomiarów."
+  },
+  "validation": {
+    "required": "Pole jest wymagane.",
+    "min": "Wartość nie może być mniejsza niż {{min}}.",
+    "max": "Wartość nie może być większa niż {{max}}."
+  },
+  "series": {
+    "temperature": "Temperatura",
+    "pressure": "Ciśnienie",
+    "flow": "Przepływ",
+    "rpm": "Obroty"
+  },
+  "units": {
+    "celsius": "°C",
+    "bar": "bar",
+    "litersPerMinute": "l/min",
+    "rpm": "obr/min"
+  },
+  "bucket": {
+    "auto": "Automatyczna",
+    "raw": "Bez agregacji",
+    "5m": "5 minut",
+    "15m": "15 minut",
+    "1h": "1 godzina",
+    "6h": "6 godzin",
+    "1d": "1 dzień"
+  },
+  "range": {
+    "label": "Zakres czasu",
+    "custom": "Zakres własny",
+    "preset": {
+      "lastHour": "Ostatnia godzina",
+      "last6Hours": "Ostatnie 6 godzin",
+      "last24Hours": "Ostatnie 24 godziny",
+      "last7Days": "Ostatnie 7 dni",
+      "last30Days": "Ostatnie 30 dni"
+    },
+    "presetShort": {
+      "lastHour": "1h",
+      "last6Hours": "6h",
+      "last24Hours": "24h",
+      "last7Days": "7d",
+      "last30Days": "30d"
+    }
+  },
+  "live": {
+    "short": "Na żywo",
+    "enabled": "Podgląd na żywo włączony",
+    "disabled": "Podgląd na żywo wyłączony"
+  },
+  "theme": {
+    "label": "Motyw",
+    "light": "Jasny",
+    "dark": "Ciemny"
+  },
+  "language": {
+    "label": "Język",
+    "pl": "Polski",
+    "en": "Angielski",
+    "shortPl": "PL",
+    "shortEn": "EN"
+  },
+  "chart": {
+    "empty": "Brak danych w wybranym zakresie",
+    "loading": "Wczytywanie wykresu…",
+    "zoomHint": "Przeciągnij w polu wykresu, aby przybliżyć. Pasek poniżej przesuwa widok; podwójne kliknięcie w wykres pokazuje cały zakres.",
+    "error": "Nie udało się wczytać wykresu",
+    "ariaLabel": "Przebieg pomiarów w czasie",
+    "zoomHintTouch": "Rozsuń palce, aby przybliżyć; pasek poniżej przesuwa widok. Cały zakres przywraca widok.",
+    "rangeActions": "Zakres wykresu",
+    "undoRange": "Cofnij",
+    "restoreRange": "Cały zakres"
+  },
+  "table": {
+    "rowsPerPage": "Wierszy na stronie",
+    "page": "Strona",
+    "first": "Pierwsza strona",
+    "previous": "Poprzednia strona",
+    "next": "Następna strona",
+    "last": "Ostatnia strona"
+  },
+  "dashboard": {
+    "title": "Pulpit",
+    "subtitle": "Eksploruj symulowaną telemetrię układu chłodzenia",
+    "filters": {
+      "title": "Filtry",
+      "series": "Serie pomiarowe",
+      "bucket": "Agregacja"
+    },
+    "chart": {
+      "title": "Przebieg w czasie"
+    },
+    "cycle": {
+      "title": "Rytm dobowy",
+      "hint": "Średnie godzinowe: kolumny to godziny doby, wiersze to kolejne dni.",
+      "seriesLabel": "Seria",
+      "rangeLabel": "Okno",
+      "days7": "7 dni",
+      "days14": "14 dni",
+      "days30": "30 dni",
+      "ariaLabel": "Mapa rytmu dobowego pomiarów"
+    }
+  },
+  "filters": {
+    "activeCount": "Aktywne filtry: {{count}}",
+    "reset": "Resetuj",
+    "seriesCount": "Serie: {{count}}"
+  },
+  "settings": {
+    "title": "Ustawienia",
+    "subtitle": "Preferencje interfejsu i danych na żywo",
+    "appearance": {
+      "title": "Wygląd",
+      "theme": "Motyw",
+      "themeHint": "Wartość początkowa pochodzi z ustawień systemu.",
+      "language": "Język interfejsu"
+    },
+    "live": {
+      "interval": "Interwał odświeżania",
+      "intervalHint": "Od 1000 do 60000 milisekund."
+    },
+    "simulation": {
+      "title": "Dane na żywo"
+    },
+    "actions": {
+      "save": "Zapisz ustawienia",
+      "reset": "Przywróć domyślne",
+      "resetConfirm": "Przywrócić wszystkie ustawienia domyślne?",
+      "saved": "Ustawienia zapisane",
+      "resetDone": "Przywrócono ustawienia domyślne",
+      "persistenceFailed": "Ustawienia działają w tej sesji, ale pamięć przeglądarki jest niedostępna.",
+      "unsaved": "Niezapisane zmiany",
+      "blocked": "Popraw zaznaczone pola, aby zapisać"
+    }
+  },
+  "strip": {
+    "currentTime": "Aktualny czas"
+  },
+  "primeng": {
+    "dayNamesMin": "Nd Pn Wt Śr Cz Pt So",
+    "dateFormat": "dd.mm.yy",
+    "firstDayOfWeek": "1",
+    "chooseDate": "Wybierz datę",
+    "chooseMonth": "Wybierz miesiąc",
+    "chooseYear": "Wybierz rok",
+    "prevMonth": "Poprzedni miesiąc",
+    "nextMonth": "Następny miesiąc",
+    "prevYear": "Poprzedni rok",
+    "nextYear": "Następny rok",
+    "prevDecade": "Poprzednia dekada",
+    "nextDecade": "Następna dekada",
+    "prevHour": "Poprzednia godzina",
+    "nextHour": "Następna godzina",
+    "prevMinute": "Poprzednia minuta",
+    "nextMinute": "Następna minuta",
+    "prevSecond": "Poprzednia sekunda",
+    "nextSecond": "Następna sekunda",
+    "emptySelection": "Nie wybrano żadnej pozycji",
+    "selection": "Wybrane pozycje: {0}"
+  }
+}

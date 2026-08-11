@@ -1,0 +1,30 @@
+:host {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--cs-gap-field) var(--cs-gap-section);
+  align-items: start;
+}
+
+.simulation-fields__pair {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cs-gap-field);
+  min-width: 0;
+}
+
+.simulation-fields__slider {
+  padding-block: 0.25rem 0.5rem;
+}
+
+/* Keep the duplicate slider label available to its `aria-labelledby` target. */
+:host ::ng-deep .simulation-fields__slider .cs-control-frame__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

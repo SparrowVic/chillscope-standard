@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+@media (pointer: coarse) {
+  /* Hide half-height stepper targets on touch devices. */
+  :host ::ng-deep .p-inputnumber-stacked .p-inputnumber-button-group {
+    display: none;
+  }
+
+  :host ::ng-deep .p-inputnumber-stacked .p-inputnumber-input {
+    padding-inline-end: var(--p-form-field-padding-x, 0.75rem);
+  }
+}

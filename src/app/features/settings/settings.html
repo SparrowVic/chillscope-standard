@@ -1,0 +1,28 @@
+<app-page-header titleKey="settings.title" subtitleKey="settings.subtitle" icon="sliders" />
+
+<form class="settings" [formRoot]="form">
+  <div class="settings__workspace">
+    <section class="settings__section cs-panel">
+      <h2 class="cs-label settings__caption">{{ 'settings.appearance.title' | transloco }}</h2>
+      <div class="settings__body">
+        <app-appearance-fields />
+      </div>
+    </section>
+
+    <section class="settings__section cs-panel">
+      <h2 class="cs-label settings__caption">{{ 'settings.simulation.title' | transloco }}</h2>
+      <div class="settings__body">
+        <app-simulation-fields [liveIntervalMs]="form.liveIntervalMs" />
+      </div>
+    </section>
+  </div>
+
+  <app-settings-actions
+    [saveDisabled]="saveDisabled()"
+    [dirty]="formDirty()"
+    [invalid]="formInvalid()"
+    (resetRequested)="restoreDefaults()"
+  />
+</form>
+
+<p-toast position="bottom-right" styleClass="cs-app-toast" />

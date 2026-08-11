@@ -1,0 +1,7 @@
+:host {
+  display: inline-flex;
+}
+
+.theme-switch__option cs-icon {
+  font-size: 0.8125rem;
+}

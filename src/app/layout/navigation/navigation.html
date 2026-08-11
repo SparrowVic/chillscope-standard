@@ -1,0 +1,25 @@
+<nav class="navigation" [attr.aria-label]="'menu.label' | transloco">
+  <a class="navigation__brand cs-focus-ring" routerLink="/dashboard">
+    <span class="navigation__brand-mark" aria-hidden="true">
+      <cs-icon name="wave-pulse" />
+    </span>
+    <span class="navigation__brand-name">{{ 'app.title' | transloco }}</span>
+  </a>
+
+  <div class="navigation__items">
+    @for (item of items; track item.route) {
+      <a
+        class="navigation__item cs-focus-ring"
+        [routerLink]="item.route"
+        routerLinkActive="navigation__item--active"
+        ariaCurrentWhenActive="page"
+        [attr.aria-label]="item.labelKey | transloco"
+      >
+        <span class="navigation__icon" aria-hidden="true">
+          <cs-icon [name]="item.icon" />
+        </span>
+        <span class="navigation__label" aria-hidden="true">{{ item.labelKey | transloco }}</span>
+      </a>
+    }
+  </div>
+</nav>

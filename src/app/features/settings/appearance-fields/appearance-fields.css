@@ -1,0 +1,6 @@
+:host {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+  gap: var(--cs-gap-field) var(--cs-gap-section);
+  align-items: start;
+}

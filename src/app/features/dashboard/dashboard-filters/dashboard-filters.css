@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.dashboard-filters__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--cs-gap-field) var(--cs-gap-section);
+}
+
+.dashboard-filters__series {
+  flex: var(--cs-filter-field-grow, 1) 1 var(--cs-filter-field-basis, 15rem);
+  min-width: 13rem;
+  max-width: var(--cs-filter-field-max, 22rem);
+}

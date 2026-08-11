@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+.error-panel {
+  display: flex;
+  align-items: center;
+  gap: var(--cs-gap-field);
+  flex-wrap: wrap;
+}
+
+.error-panel__text {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+
+.error-panel__title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.error-panel__description {
+  margin: 0.15rem 0 0;
+  font-size: calc(0.8125rem * var(--cs-density));
+}
+
+.error-panel__detail {
+  margin: 0.35rem 0 0;
+  font-size: calc(0.75rem * var(--cs-density));
+  opacity: 0.8;
+  overflow-wrap: anywhere;
+}
+
+.error-panel__text + p-button {
+  margin-inline-start: auto;
+}

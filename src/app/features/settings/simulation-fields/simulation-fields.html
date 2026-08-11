@@ -1,0 +1,20 @@
+<div class="simulation-fields__pair">
+  <cs-input-number
+    label="settings.live.interval"
+    hint="settings.live.intervalHint"
+    suffix=" ms"
+    inputMode="numeric"
+    [formField]="liveIntervalMs()"
+    [step]="500"
+  />
+  <cs-slider
+    class="simulation-fields__slider"
+    label="settings.live.interval"
+    [showValue]="false"
+    [min]="intervalRange.min"
+    [max]="intervalRange.max"
+    [step]="500"
+    [value]="intervalSliderValue()"
+    (valueChange)="setFromSlider(liveIntervalMs(), $event)"
+  />
+</div>

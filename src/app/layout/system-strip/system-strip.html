@@ -1,0 +1,37 @@
+<div class="strip__inner">
+  <a class="brand cs-focus-ring" routerLink="/dashboard">
+    <span class="brand__mark" aria-hidden="true">
+      <cs-icon name="wave-pulse" />
+    </span>
+    <span class="brand__name">{{ 'app.title' | transloco }}</span>
+  </a>
+
+  <div class="strip__telemetry">
+    <span class="live" [class.live--on]="live()">
+      <cs-icon class="live__icon" aria-hidden="true" name="tower-broadcast" />
+      <span class="cs-led" [class.cs-led--pulse]="live()" aria-hidden="true"></span>
+      <span class="live__text" aria-hidden="true">{{ 'live.short' | transloco }}</span>
+      <span class="sr-only">{{ (live() ? 'live.enabled' : 'live.disabled') | transloco }}</span>
+    </span>
+
+    <time
+      class="clock cs-mono"
+      [attr.aria-label]="'strip.currentTime' | transloco"
+      [attr.datetime]="clockDateTime()"
+    >
+      <cs-digit-morph [value]="clockText()" />
+    </time>
+  </div>
+
+  <div class="strip__controls">
+    <app-theme-switch />
+    <app-language-switch />
+  </div>
+
+  @if (settingsPersistenceFailed()) {
+    <span class="settings-persistence-error" role="alert">
+      <cs-icon name="triangle-exclamation" aria-hidden="true" />
+      <span>{{ 'settings.actions.persistenceFailed' | transloco }}</span>
+    </span>
+  }
+</div>

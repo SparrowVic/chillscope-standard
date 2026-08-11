@@ -1,0 +1,84 @@
+@if (mode() === 'inline') {
+  <section class="cs-panel filter-shell__inline" [attr.aria-label]="label() | transloco">
+    <ng-container [ngTemplateOutlet]="controls()" />
+  </section>
+} @else {
+  <section class="cs-panel filter-shell__bar" [attr.aria-label]="label() | transloco">
+    <button
+      #entry
+      type="button"
+      class="filter-shell__entry cs-focus-ring"
+      aria-haspopup="dialog"
+      [attr.aria-expanded]="open()"
+      (click)="openOverlay()"
+    >
+      <cs-icon class="filter-shell__entry-icon" name="filter" aria-hidden="true" />
+      <span class="filter-shell__entry-label">{{ label() | transloco }}</span>
+      <span class="filter-shell__summary cs-mono" aria-hidden="true">
+        <ng-content select="[csFilterSummary]" />
+      </span>
+      @if (activeCount() > 0) {
+        <span class="filter-shell__count cs-mono" aria-hidden="true">{{ activeCount() }}</span>
+      }
+      <span class="sr-only">
+        {{ 'filters.activeCount' | transloco: { count: activeCount() } }}
+      </span>
+    </button>
+  </section>
+
+  @if (open()) {
+    <div class="filter-shell__portal" #portal>
+      <div class="filter-shell__backdrop" aria-hidden="true"></div>
+
+      <div
+        #dialog
+        class="filter-shell__dialog"
+        [class.filter-shell__dialog--drawer]="mode() === 'drawer'"
+        role="dialog"
+        aria-modal="true"
+        tabindex="-1"
+        [attr.aria-labelledby]="titleId"
+        (keydown)="onDialogKeydown($event)"
+      >
+        <header class="filter-shell__head">
+          <h2 class="cs-label filter-shell__title" [id]="titleId">{{ label() | transloco }}</h2>
+          <button
+            type="button"
+            class="filter-shell__close cs-focus-ring"
+            [attr.aria-label]="'common.close' | transloco"
+            (click)="cancelAndClose()"
+          >
+            <cs-icon name="xmark" aria-hidden="true" />
+          </button>
+        </header>
+
+        <div class="filter-shell__body">
+          @for (epoch of epochList(); track epoch) {
+            <ng-container [ngTemplateOutlet]="controls()" />
+          }
+        </div>
+
+        <footer class="filter-shell__foot">
+          <button type="button" class="filter-shell__action cs-focus-ring" (click)="resetDraft()">
+            {{ 'filters.reset' | transloco }}
+          </button>
+          <span class="filter-shell__foot-gap" aria-hidden="true"></span>
+          <button
+            type="button"
+            class="filter-shell__action cs-focus-ring"
+            (click)="cancelAndClose()"
+          >
+            {{ 'common.cancel' | transloco }}
+          </button>
+          <button
+            type="button"
+            class="filter-shell__action filter-shell__action--primary cs-focus-ring"
+            (click)="applyAndClose()"
+          >
+            {{ 'common.apply' | transloco }}
+          </button>
+        </footer>
+      </div>
+    </div>
+  }
+}

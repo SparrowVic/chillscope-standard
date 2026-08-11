@@ -1,0 +1,31 @@
+<cs-filter-shell
+  label="dashboard.filters.title"
+  [activeCount]="activeCount()"
+  (applied)="commitStaged()"
+  (discarded)="discardStaged()"
+  (resetted)="discardStaged()"
+>
+  <span csFilterSummary>
+    {{ 'filters.seriesCount' | transloco: { count: selected().length } }}
+    · {{ summaryRangeKey() | transloco }} · {{ 'bucket.' + bucket() | transloco }}
+  </span>
+
+  <ng-template>
+    <div class="dashboard-filters__row">
+      <app-series-picker
+        class="dashboard-filters__series"
+        [available]="available()"
+        [selected]="selected()"
+        (selectedChange)="onSeriesPicked($event)"
+      />
+
+      <app-range-picker
+        [range]="range()"
+        [bucket]="bucket()"
+        (rangeChange)="onRangePicked($event)"
+        (bucketChange)="onBucketPicked($event)"
+        (bucketReset)="onBucketReset()"
+      />
+    </div>
+  </ng-template>
+</cs-filter-shell>

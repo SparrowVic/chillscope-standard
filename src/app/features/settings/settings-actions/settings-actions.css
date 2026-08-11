@@ -1,0 +1,99 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--cs-gap-field);
+}
+
+p-confirmpopup {
+  display: contents;
+}
+
+.settings-actions__status {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(0.5rem * var(--cs-density));
+  margin-inline-end: auto;
+  color: var(--cs-muted);
+  font-size: var(--cs-font-support);
+  line-height: 1.45;
+}
+
+.settings-actions__status-flag {
+  color: var(--cs-crit);
+}
+
+.settings-actions__lamp {
+  --cs-led-color: var(--cs-warn);
+}
+
+@media (min-width: 900px) {
+  :host {
+    padding-block-start: var(--cs-pad-panel-tight);
+    border-block-start: 1px solid var(--cs-hairline);
+  }
+}
+
+/* Sticky positioning keeps the dock reachable above an on-screen keyboard. */
+@media (width < 900px) {
+  :host {
+    margin-inline: calc(-1 * max(var(--cs-page-gutter), env(safe-area-inset-left)))
+      calc(-1 * max(var(--cs-page-gutter), env(safe-area-inset-right)));
+    padding: var(--cs-gap-field) max(var(--cs-page-gutter), env(safe-area-inset-left))
+      var(--cs-gap-field) max(var(--cs-page-gutter), env(safe-area-inset-right));
+    border-block-start: 1px solid var(--cs-hairline);
+    background: var(--cs-canvas);
+  }
+
+  :host.settings-actions--sticky {
+    position: sticky;
+    bottom: var(--settings-dock, 0px);
+    z-index: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  :host {
+    margin-inline: calc(-1 * max(1rem, env(safe-area-inset-left)))
+      calc(-1 * max(1rem, env(safe-area-inset-right)));
+    padding-inline: max(1rem, env(safe-area-inset-left)) max(1rem, env(safe-area-inset-right));
+  }
+}
+
+@media (max-width: 520px) {
+  :host {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .settings-actions__status {
+    grid-column: 1 / -1;
+  }
+
+  p-button,
+  :host ::ng-deep .p-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 350px) {
+  :host {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  :host.settings-actions--sticky {
+    position: static;
+    bottom: auto;
+  }
+
+  .settings-actions__status,
+  p-button {
+    width: 100%;
+  }
+
+  :host ::ng-deep .p-button {
+    width: 100%;
+  }
+}

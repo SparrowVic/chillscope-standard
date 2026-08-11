@@ -1,0 +1,61 @@
+:host {
+  --settings-dock: var(--cs-mobile-navigation-reserve);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--cs-gap-section);
+}
+
+@media (max-height: 420px) {
+  :host {
+    --settings-dock: calc(
+      var(--cs-mobile-navigation-height) + 0.375rem + env(safe-area-inset-bottom)
+    );
+  }
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cs-gap-section);
+  width: 100%;
+  max-width: 68rem;
+}
+
+.settings__workspace {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cs-gap-section);
+  width: 100%;
+}
+
+.settings__caption {
+  padding: var(--cs-pad-panel-tight) var(--cs-pad-panel);
+  border-bottom: 1px solid var(--cs-hairline);
+}
+
+.settings__section {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.settings__body {
+  flex: 1 1 auto;
+  padding: var(--cs-pad-panel);
+}
+
+@media (width < 900px) {
+  .settings {
+    /* The reserve lets the sticky action dock stop above mobile navigation. */
+    padding-block-end: var(--settings-dock);
+  }
+}
+
+@media (min-width: 1180px) {
+  .settings__workspace {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+}
